@@ -1,5 +1,8 @@
 # Michigan County Air Quality Explorer (2025)
 
+## Live Streamlit Dashboard
+https://ebnerashid-cmse-830-app-hslkmx.streamlit.app/
+
 ## Project Objective
 To analyze air quality across Michigan counties in 2025 using the EPA Air Quality Index (AQI) dataset.
 
@@ -21,9 +24,10 @@ The project examines AQI distributions, EPA AQI categories, county-level differe
 The Streamlit dashboard includes interactive county and month filters and a Michigan county map with hover information.
 
 ## How to Run
-1. Install dependencies: `pip install -r requirements.txt`
-2. Run the app: `streamlit run app.py`
-3. Download or clone this repository.
+1. Download or clone this repository.
+2. Install dependencies: `pip install -r requirements.txt`
+3. Run the app: `streamlit run app.py`
+
 
 
 ## Limitations
