@@ -187,6 +187,16 @@ fig = px.line(monthly, x="Month name", y="Mean_AQI", markers=True, title="Monthl
 fig.update_traces(line_color="#e39a20", line_width=3)
 st.plotly_chart(fig, use_container_width=True)
 st.caption("Monthly means pool all reported county-day observations in the selection. Changes in county reporting coverage can influence month-to-month comparisons; this chart does not establish causes of seasonal differences.")
+highest_month = monthly.loc[monthly["Mean_AQI"].idxmax()]
+lowest_month = monthly.loc[monthly["Mean_AQI"].idxmin()]
+
+st.caption(
+    f"Finding: The highest mean AQI was recorded in "
+    f"{highest_month['Month']} ({highest_month['Mean_AQI']:.1f}), "
+    f"while the lowest was recorded in "
+    f"{lowest_month['Month']} ({lowest_month['Mean_AQI']:.1f}) "
+    "during the selected period."
+)
 with st.expander("Monthly summary table"):
     st.dataframe(monthly[["Month name","Mean_AQI","Reported_Observations"]].round(2), hide_index=True, use_container_width=True)
 
