@@ -153,6 +153,14 @@ fig.update_layout(height=max(450, len(county)*25+120))
 st.plotly_chart(fig, use_container_width=True)
 st.caption("AQI 50 is the upper boundary of the daily 'Good' category. A county's average AQI is not itself a daily AQI category. County averages are calculated only from reported days.")
 
+highest = county.loc[county["Mean_AQI"].idxmax()]
+
+st.caption(
+    f"Finding: {highest['County']} County had the highest mean AQI "
+    f"({highest['Mean_AQI']:.1f}) among the selected counties "
+    "during the selected period."
+)
+
 fig = px.bar(county.sort_values("Coverage (%)"), x="Coverage (%)", y="County", orientation="h", title="Reporting coverage by county", labels={"Coverage (%)":"Reporting coverage (%)"})
 fig.update_traces(marker_color="#719eb9")
 fig.update_xaxes(range=[0,100])
