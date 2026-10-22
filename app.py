@@ -162,7 +162,7 @@ st.caption(
 )
 
 fig = px.bar(county.sort_values("Coverage (%)"), x="Coverage (%)", y="County", orientation="h", title="Reporting coverage by county", labels={"Coverage (%)":"Reporting coverage (%)"})
-fig.update_traces(marker_color="#719eb9")
+fig.update_traces(marker_color="#8064A2")
 fig.update_xaxes(range=[0,100])
 fig.update_layout(height=max(450, len(county)*25+120))
 st.plotly_chart(fig, use_container_width=True)
@@ -184,7 +184,7 @@ st.subheader("3 · Monthly air quality")
 monthly = filtered.groupby("Month").agg(Mean_AQI=("AQI","mean"), Reported_Observations=("AQI","count")).reset_index()
 monthly["Month name"] = monthly["Month"].map(lambda m:calendar.month_abbr[m])
 fig = px.line(monthly, x="Month name", y="Mean_AQI", markers=True, title="Monthly mean reported AQI", labels={"Month name":"Month", "Mean_AQI":"Mean AQI"}, hover_data=["Reported_Observations"])
-fig.update_traces(line_color="#e39a20", line_width=3)
+fig.update_traces(line_color="#2563A6", line_width=5)
 st.plotly_chart(fig, use_container_width=True)
 st.caption("Monthly means pool all reported county-day observations in the selection. Changes in county reporting coverage can influence month-to-month comparisons; this chart does not establish causes of seasonal differences.")
 highest_month = monthly.loc[monthly["Mean_AQI"].idxmax()]
