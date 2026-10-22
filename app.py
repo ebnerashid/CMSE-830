@@ -167,6 +167,16 @@ fig.update_xaxes(range=[0,100])
 fig.update_layout(height=max(450, len(county)*25+120))
 st.plotly_chart(fig, use_container_width=True)
 st.caption(f"Coverage is the number of unique reported days divided by {possible_days} possible calendar days in the selected period. Low coverage makes county comparisons less representative.")
+
+highest_cov = county.loc[county["Coverage (%)"].idxmax()]
+lowest_cov = county.loc[county["Coverage (%)"].idxmin()]
+
+st.caption(
+    f"Finding: Reporting coverage was highest in "
+    f"{highest_cov['County']} County ({highest_cov['Coverage (%)']:.1f}%) "
+    f"and lowest in {lowest_cov['County']} County "
+    f"({lowest_cov['Coverage (%)']:.1f}%)."
+)
 with st.expander("County summary table"):
     st.dataframe(county.round(2).reset_index(drop=True), hide_index=True, use_container_width=True)
 
