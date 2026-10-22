@@ -190,13 +190,22 @@ st.caption("Monthly means pool all reported county-day observations in the selec
 highest_month = monthly.loc[monthly["Mean_AQI"].idxmax()]
 lowest_month = monthly.loc[monthly["Mean_AQI"].idxmin()]
 
+import calendar
+
+highest_month = monthly.loc[monthly["Mean_AQI"].idxmax()]
+lowest_month = monthly.loc[monthly["Mean_AQI"].idxmin()]
+
+highest_name = calendar.month_name[int(highest_month["Month"])]
+lowest_name = calendar.month_name[int(lowest_month["Month"])]
+
 st.caption(
     f"Finding: The highest mean AQI was recorded in "
-    f"{highest_month['Month']} ({highest_month['Mean_AQI']:.1f}), "
+    f"{highest_name} ({highest_month['Mean_AQI']:.1f}), "
     f"while the lowest was recorded in "
-    f"{lowest_month['Month']} ({lowest_month['Mean_AQI']:.1f}) "
+    f"{lowest_name} ({lowest_month['Mean_AQI']:.1f}) "
     "during the selected period."
 )
+
 with st.expander("Monthly summary table"):
     st.dataframe(monthly[["Month name","Mean_AQI","Reported_Observations"]].round(2), hide_index=True, use_container_width=True)
 
