@@ -35,3 +35,13 @@ The Streamlit dashboard includes interactive county and month filters and a Mich
 - Reporting coverage varies among counties.
 - The analysis covers 2025 only.
 - More complete county-day coverage would improve the reliability of comparisons.
+
+## AI Use Disclosure
+
+AI Tool Used: ChatGPT (GPT-6)
+
+Purpose of Use: ChatGPT was used to assist with Python coding, debugging, Streamlit dashboard development, data visualization, and improving interactive visualization and project documentation.
+
+Verification: The suggested code and outputs were tested and reviewed, and the dashboard was checked to ensure that the visualizations and interactive filters worked correctly.
+
+My Contribution: I selected the research question and dataset, performed the data analysis, reviewed the results, and prepared the final project and interpretations.
