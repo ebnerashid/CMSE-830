@@ -147,7 +147,7 @@ with right:
 
 st.subheader("2 · Compare counties")
 fig = px.bar(county.sort_values("Mean_AQI"), x="Mean_AQI", y="County", orientation="h", title="Mean daily AQI by reporting county", labels={"Mean_AQI":"Mean reported AQI"})
-fig.update_traces(marker_color="#4f83a7")
+fig.update_traces(marker_color="#E69F00")
 fig.add_vline(x=50, line_dash="dash", line_color="#c13b3b", annotation_text="AQI 50")
 fig.update_layout(height=max(450, len(county)*25+120))
 st.plotly_chart(fig, use_container_width=True)
